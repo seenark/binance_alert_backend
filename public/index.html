@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>HadesGod</h1>
+  <script>
+    const ws = new WebSocket("wss://fstream.binance.com/ws/btcusdt@kline_1m")
+
+    ws.onopen = () => {
+      console.warn('connected')
+    }
+
+    ws.onmessage = (event) => {
+      const { data } = event
+      const dataObj = JSON.parse(data)
+      console.log(dataObj)
+    }
+  </script>
+</body>
+
+</html>
